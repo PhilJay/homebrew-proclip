@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from Database import Database
+from proclip.Database import Database
 from tkinter import Tk
 import sys, argparse, os
 

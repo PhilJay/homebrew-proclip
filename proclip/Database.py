@@ -1,5 +1,5 @@
 import sqlite3
-from Entry import Entry
+from proclip.Entry import Entry
 
 
 class Database:
