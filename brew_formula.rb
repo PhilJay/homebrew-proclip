@@ -3,7 +3,7 @@ class ProClip < Formula
   homepage "https://github.com/PhilJay/ProClip"
 
 
-  url "https://github.com/PhilJay/ProClip/blob/master/proclip", :using => :curl :nounzip
+  url "https://github.com/PhilJay/ProClip/blob/master/proclip", :using => :curl, :nounzip
 
   def install
     bin.install "philjay/proclip"
