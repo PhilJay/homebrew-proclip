@@ -6,6 +6,7 @@ class BrewFormula < Formula
   url "https://github.com/PhilJay/homebrew-proclip.git", :using => :git, :tag => "0.0.2"
 
   def install
+    # the name of the executable
     bin.install "proclip"
   end
 end
