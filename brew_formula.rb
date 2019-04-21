@@ -3,7 +3,7 @@ class BrewFormula < Formula
   homepage "https://github.com/PhilJay/homebrew-proclip"
 
 
-  url "https://github.com/PhilJay/homebrew-proclip.git", :using => :git, :tag => "0.0.1"
+  url "https://github.com/PhilJay/homebrew-proclip.git", :using => :git, :tag => "0.0.2"
 
   def install
     bin.install "proclip"
