@@ -3,7 +3,7 @@ class BrewFormula < Formula
   homepage "https://github.com/PhilJay/ProClip"
 
 
-  url "https://github.com/PhilJay/ProClip/blob/master/proclip", :using => :curl
+  url "https://github.com/PhilJay/ProClip/blob/master/proclip", :using => :curl, :tag => "0.0.1"
 
   def install
     bin.install "philjay/proclip"
