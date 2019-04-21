@@ -1,4 +1,4 @@
-class BrewFormula < Formula
+class Proclip < Formula
   desc "A terminal / commandline extension capable of storing and executing frequently used commands conveniently"
   homepage "https://github.com/PhilJay/homebrew-proclip"
 
