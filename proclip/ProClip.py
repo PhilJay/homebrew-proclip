@@ -1,18 +1,8 @@
 #!/usr/bin/env python
 
 from proclip.Database import Database
-from tkinter import Tk
+from proclip.ClipCopy import ClipCopy
 import sys, argparse, os
-
-
-def copy2clipboard(txt):
-    r = Tk()
-    r.withdraw()
-    r.clipboard_clear()
-    r.clipboard_append(txt)
-    r.update()  # now it stays on the clipboard after the window is closed
-    r.destroy()
-
 
 if __name__ == '__main__':
 
@@ -74,4 +64,5 @@ if __name__ == '__main__':
             os.system(entry.content)
         if copy:
             print("Copying to clipboard...")
-            copy2clipboard(entry.content)
+            copy = ClipCopy()
+            copy.copy2clipboard(entry.content)
