@@ -30,4 +30,7 @@ After successful installation, ProClip can be used via the `pcl` command:
   
   # executes "ping www.google.com"
   pcl -e pg
+  
+  # copies "ping www.google.com" to the clipboard
+  pcl -c pg
 ```
