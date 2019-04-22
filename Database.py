@@ -40,6 +40,16 @@ class Database:
 
         return entries
 
+    def get(self, data):
+        result = self.c.execute("SELECT * FROM entries WHERE id=?", [data]).fetchone()
+        if result is not None:
+            return Entry(result)
+        else:
+            result = self.c.execute("SELECT * FROM entries WHERE name=?", [data]).fetchone()
+            if result is not None:
+                return Entry(result)
+        return None
+
     def get_id(self, identifier):
         result = self.c.execute("SELECT * FROM entries WHERE id=?", [identifier]).fetchone()
         if result is not None:

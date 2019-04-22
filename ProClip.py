@@ -1,35 +1,31 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
+import argparse
+import sys
+
+from Database import Database
 from Interpreter import Interpreter
-from ClipCopy import ClipCopy
-import sys, argparse, os
 
 if __name__ == '__main__':
-
     argv = sys.argv
     argv = argv[1:]  # first element of args is always the file name
     length = len(argv)
+    db = Database()
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('-l', nargs='*')
-    parser.add_argument('-p', nargs='*')
-    parser.add_argument('-r', nargs='*')
-    parser.add_argument('-g', nargs='*')
-    parser.add_argument('-c', nargs='*')
-    parser.add_argument('-e', nargs='*')
+    parser.add_argument('-l', '--list', action='store_true', help='Lists all currently stored entries')
+    parser.add_argument('-s', '--store', nargs=2, help='Stores a new entry with (name, content)')
+    parser.add_argument('-r', '--remove', nargs=1, help='Removes the entry with the specified name')
+    parser.add_argument('--removeAll', action='store_true', help='Removes all entries')
+    parser.add_argument('-c', '--copy', nargs=1, help='Copies the entry with the provided name to the clipboard')
+    parser.add_argument('-e', '--execute', nargs=1, help='Executes the entry with the provided name')
+    parser.add_argument('-v', '--verbose', action='store_true', help='Enables debug print')
 
-    args = vars(parser.parse_args())
+    namespace = parser.parse_args()
+    args = vars(namespace)
     args = dict((k, v) for k, v in args.items() if v is not None)
-    # print(args)
 
-    interpreter = Interpreter()
-    (entry, execute, copy) = interpreter.interpret(args)
+    interpreter = Interpreter(db, namespace, args)
+    interpreter.interpret()
 
-    if entry is not None:
-        if execute:
-            print("Executing...")
-            os.system(entry.content)
-        if copy:
-            print("Copying to clipboard...")
-            copy = ClipCopy()
-            copy.copy2clipboard(entry.content)
+    db.close()

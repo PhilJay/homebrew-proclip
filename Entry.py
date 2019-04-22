@@ -6,4 +6,4 @@ class Entry(object):
         self.content = db_object[2]
 
     def __repr__(self):
-        return "{ id: %s, name: %s, content: %s }" % (self.identifier, self.name, self.content)
+        return "{ name: %s, content: %s }" % (self.name, self.content)

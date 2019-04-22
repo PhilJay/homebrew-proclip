@@ -1,45 +1,53 @@
-from Database import Database
+from ClipCopy import ClipCopy
+from Entry import Entry
+import os
 
 
 class Interpreter(object):
-    def __init__(self):
-        pass
 
-    def interpret(self, args):
-        entry = None
-        execute = False
-        copy = False
+    def __init__(self, db, namespace, args):
+        self.db = db
+        self.namespace = namespace
+        self.args = args
 
-        db = Database()
+    def print_if(self, txt):  # only prints if verbosity is enabled
+        if self.namespace.verbose:
+            print(txt)
 
-        for opt, arg in args.items():
-            if opt in ("p", "push"):
-                if len(arg) == 2:
-                    identifier = db.push_with_name(arg[0], arg[1])
-                else:
-                    identifier = db.push(arg[0])
-                print("Stored: " + str(arg) + ", identifier: " + str(identifier))
-            elif opt in ("l", "list"):
-                print(db.list())
-            elif opt in ("g", "get"):
-                if len(arg) == 1:
-                    entry = db.get_id(arg[0])
-                    if entry is None:
-                        entry = db.get_name(arg[0])
-                else:
-                    entry = db.get_id(1)
-                print("Getting... " + str(entry))
-            elif opt in ("c", "copy"):
-                copy = True
+    def interpret(self):
+        self.print_if("Arguments: " + str(self.args))
+
+        for opt, arg in self.args.items():
+            if opt in ("s", "store"):
+                identifier = self.db.push_with_name(arg[0], arg[1])
+                self.print_if("Stored: " + str(arg) + ", identifier: " + str(identifier))
+
             elif opt in ("e", "execute"):
-                execute = True
-            elif opt in ("r", "remove"):
-                if len(arg) == 1:
-                    db.delete_name(arg[0])
-                    print("Deleted " + arg[0])
+                entry = self.db.get(arg[0])
+                if entry is not None:
+                    self.print_if("Executing: " + str(entry.content))
+                    os.system(entry.content)
                 else:
-                    db.delete_all()
-                    print("Deleted all")
+                    print("Cannot execute, entry not found")
 
-        db.close()
-        return entry, execute, copy
+            elif opt in ("c", "copy"):
+                entry = self.db.get(arg[0])
+                if entry is not None:
+                    self.print_if("Copying to clipboard: " + str(entry.content))
+                    copy = ClipCopy()
+                    copy.copy2clipboard(entry.content)
+                else:
+                    print("Cannot copy to clipboard, entry not found")
+
+            elif opt in ("r", "remove"):
+                self.db.delete_name(arg[0])
+                self.print_if("Deleted: " + arg[0])
+
+        if self.namespace.list:
+            entries = self.db.list()
+            for e in entries:
+                print(e)
+
+        if self.namespace.removeAll:
+            self.db.delete_all()
+            self.print_if("Deleted all")
