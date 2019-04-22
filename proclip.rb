@@ -6,7 +6,7 @@ class Proclip < Formula
   url "https://github.com/PhilJay/homebrew-proclip.git", :using => :git
 
   def install
-    # the name of the executable
-    bin.install "proclip"
+    # the name of the executable in the git repo
+    bin.install "pcl"
   end
 end
