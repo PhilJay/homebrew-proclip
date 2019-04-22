@@ -1,5 +1,5 @@
 # ProClip
-A terminal / commandline extension for storing and executing frequently used commands conveniently instead of having to re-type them everytime.
+A terminal / commandline extension for **storing and executing frequently used commands** conveniently instead of having to re-type them everytime.
 
 Requires Python 3+
 
@@ -34,7 +34,7 @@ After successful installation, ProClip can be used via the `pcl` command:
   # copies "ping www.google.com" to the clipboard
   pcl -c pg
   
-  # removes the "pg" alias (meaning it cannot be used anymore or replaced by a new command)
+  # removes the "pg" alias (meaning it is no longer usable and can be replaced by a new command)
   pcl -r pg
 ```
 
