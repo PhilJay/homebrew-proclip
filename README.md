@@ -4,6 +4,8 @@ A terminal / commandline extension for **storing and executing frequently used c
 Requires Python 3+
 
 # Installation
+ProClip can be installed using [Homebrew](https://brew.sh/), to do so, follow the steps below.
+
 Clone the repository and add the brew formula to the brew search path using:
 ```python
   brew tap philjay/proclip https://github.com/PhilJay/homebrew-proclip.git
