@@ -1,15 +1,13 @@
 # ProClip
-A terminal / commandline extension capable of storing and executing frequently used commands conveniently
+A terminal / commandline extension for storing and executing frequently used commands conveniently instead of having to re type them everytime.
 
 # Installation
-Clone the repository and add the brew formula to the brew search path:
-
+Clone the repository and add the brew formula to the brew search path using:
 ```python
   brew tap philjay/proclip https://github.com/PhilJay/homebrew-proclip.git
 ```
 
-Install the script "proclip":
-
+Install "proclip":
 ```python
   brew install proclip
 ```
@@ -33,4 +31,16 @@ After successful installation, ProClip can be used via the `pcl` command:
   
   # copies "ping www.google.com" to the clipboard
   pcl -c pg
+```
+
+Requires Python 3+
+
+# More examples
+
+```python
+  # store multiple commands and execute them at once
+  pcl -s test "mkdir test && cd test && touch test.txt"
+  
+  # execute the command and perform all operations (crate folder, move to it, create file)
+  pcl -e test
 ```
