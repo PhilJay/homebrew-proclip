@@ -14,11 +14,11 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument('-l', '--list', action='store_true', help='Lists all currently stored entries')
-    parser.add_argument('-s', '--store', nargs=2, help='Stores a new entry with (name, content)')
-    parser.add_argument('-r', '--remove', nargs=1, help='Removes the entry with the specified name')
+    parser.add_argument('-s', '--store', nargs=2, help='Stores a new entry with (alias, content)')
+    parser.add_argument('-r', '--remove', nargs=1, help='Removes the entry with the specified alias')
     parser.add_argument('--removeAll', action='store_true', help='Removes all entries')
     parser.add_argument('-c', '--copy', nargs=1, help='Copies the entry with the provided name to the clipboard')
-    parser.add_argument('-e', '--execute', nargs=1, help='Executes the entry with the provided name')
+    parser.add_argument('-e', '--execute', nargs=1, help='Executes the entry with the provided alias')
     parser.add_argument('-v', '--verbose', action='store_true', help='Enables debug print')
 
     namespace = parser.parse_args()

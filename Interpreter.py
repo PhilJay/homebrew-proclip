@@ -19,8 +19,8 @@ class Interpreter(object):
 
         for opt, arg in self.args.items():
             if opt in ("s", "store"):
-                identifier = self.db.push_with_name(arg[0], arg[1])
-                self.print_if("Stored: " + str(arg) + ", identifier: " + str(identifier))
+                identifier = self.db.push_with_alias(arg[0], arg[1])
+                self.print_if("Stored: " + str(arg) + ", id: " + str(identifier))
 
             elif opt in ("e", "execute"):
                 entry = self.db.get(arg[0])
@@ -40,7 +40,7 @@ class Interpreter(object):
                     print("Cannot copy to clipboard, entry not found")
 
             elif opt in ("r", "remove"):
-                self.db.delete_name(arg[0])
+                self.db.delete_alias(arg[0])
                 self.print_if("Deleted: " + arg[0])
 
         if self.namespace.list:

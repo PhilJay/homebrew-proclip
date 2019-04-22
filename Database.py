@@ -10,9 +10,9 @@ class Database:
 
         create = """CREATE TABLE IF NOT EXISTS entries (
         id INTEGER PRIMARY KEY, 
-        name TEXT,
+        alias TEXT,
         content TEXT not null,
-        unique (name, content)
+        unique (alias)
         )"""
         # Create table
         self.c.execute(create)
@@ -26,8 +26,8 @@ class Database:
         self.conn.commit()
         return self.c.lastrowid
 
-    def push_with_name(self, name, content):
-        self.c.execute("INSERT INTO entries (name, content) VALUES (?, ?)", [name, content])
+    def push_with_alias(self, alias, content):
+        self.c.execute("INSERT INTO entries (alias, content) VALUES (?, ?)", [alias, content])
         self.conn.commit()
         return self.c.lastrowid
 
@@ -45,7 +45,7 @@ class Database:
         if result is not None:
             return Entry(result)
         else:
-            result = self.c.execute("SELECT * FROM entries WHERE name=?", [data]).fetchone()
+            result = self.c.execute("SELECT * FROM entries WHERE alias=?", [data]).fetchone()
             if result is not None:
                 return Entry(result)
         return None
@@ -57,8 +57,8 @@ class Database:
         else:
             return None
 
-    def get_name(self, name):
-        result = self.c.execute("SELECT * FROM entries WHERE name=?", [name]).fetchone()
+    def get_alias(self, alias):
+        result = self.c.execute("SELECT * FROM entries WHERE alias=?", [alias]).fetchone()
         if result is not None:
             return Entry(result)
         else:
@@ -80,8 +80,8 @@ class Database:
             self.c.execute("DELETE FROM entries WHERE id=?", [row[0]])
         self.conn.commit()
 
-    def delete_name(self, name):
-        self.c.execute("DELETE FROM entries WHERE name=?", [name])
+    def delete_alias(self, alias):
+        self.c.execute("DELETE FROM entries WHERE alias=?", [alias])
         self.conn.commit()
         return self.c.lastrowid
 
