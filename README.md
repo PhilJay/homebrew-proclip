@@ -33,6 +33,9 @@ After successful installation, ProClip can be used via the `pcl` command:
   
   # copies "ping www.google.com" to the clipboard
   pcl -c pg
+  
+  # removes the "pg" alias (meaning it cannot be used anymore or replaced by a new command)
+  pcl -r pg
 ```
 
 # More examples
