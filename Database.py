@@ -1,11 +1,21 @@
 import sqlite3
+import os
 from Entry import Entry
+from os.path import expanduser
 
 
 class Database:
 
     def __init__(self):
-        self.conn = sqlite3.connect("proclip.db")
+
+        home = expanduser("~")
+        directory_path = home + "/Library/Application Support/ProClip"
+
+        #  create the directory if it does not exist
+        if not os.path.exists(directory_path):
+            os.makedirs(directory_path)
+
+        self.conn = sqlite3.connect(directory_path + "/proclip.db")
         self.c = self.conn.cursor()
 
         create = """CREATE TABLE IF NOT EXISTS entries (
