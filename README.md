@@ -11,9 +11,15 @@ Clone the repository and add the brew formula to the brew search path using:
   brew tap philjay/proclip https://github.com/PhilJay/homebrew-proclip.git
 ```
 
-Install "proclip":
+**Install** "proclip":
 ```python
   brew install proclip
+```
+
+In order to **upgrade to a newer version** once already installed, run:
+```python
+  brew tap philjay/proclip https://github.com/PhilJay/homebrew-proclip.git
+  brew upgrade proclip
 ```
 
 
