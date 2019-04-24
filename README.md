@@ -44,6 +44,9 @@ After successful installation, ProClip can be used via the `pcl` command:
   
   # removes the "pg" alias (meaning it is no longer usable and can be replaced by a new command)
   pcl -r pg
+  
+  # -v option enables "verbose" output for all preceding arguments
+  pcl -l -v
 ```
 
 # More examples
