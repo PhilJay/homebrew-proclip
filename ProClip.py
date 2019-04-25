@@ -19,6 +19,7 @@ if __name__ == '__main__':
     parser.add_argument('--removeAll', action='store_true', help='Removes all entries')
     parser.add_argument('-c', '--copy', nargs=1, help='Copies the entry with the provided name to the clipboard')
     parser.add_argument('-e', '--execute', nargs=1, help='Executes the entry with the provided alias')
+    parser.add_argument('-a', '--arguments', nargs='*', help='Additional arguments for the execute command')
     parser.add_argument('-v', '--verbose', action='store_true', help='Enables debug print')
 
     namespace = parser.parse_args()
