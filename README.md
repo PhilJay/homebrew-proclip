@@ -57,4 +57,7 @@ After successful installation, ProClip can be used via the `pcl` command:
   
   # execute the command and perform all operations (crate folder, move to it, create file)
   pcl -e test
+  
+  # execute "test" with additional arguments "foo bar" (provided via -a)
+  pcl -e test -a "foo bar"
 ```
