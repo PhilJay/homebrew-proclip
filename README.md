@@ -53,11 +53,12 @@ After successful installation, ProClip can be used via the `pcl` command:
 
 ```python
   # store multiple commands and execute them at once
-  pcl -s test "mkdir test && cd test && touch test.txt"
+  pcl -s test "mkdir test && cd test && touch test1.txt"
   
   # execute the command and perform all operations (crate folder, move to it, create file)
   pcl -e test
   
-  # execute "test" with additional arguments "foo bar" (provided via -a)
-  pcl -e test -a "foo bar"
+  # execute the stored "test" command with additional arguments "test2.txt" (provided via -a)
+  pcl -e test -a "test2.txt"
+  # executed command -> "mkdir test && cd test && touch test1.txt test2.txt"
 ```
