@@ -26,7 +26,10 @@ class Interpreter(object):
                 entry = self.db.get(arg[0])
                 if entry is not None:
                     self.print_if("Executing: " + str(entry.content))
-                    os.system(entry.content)
+                    if namespace.arguments:
+                        os.system(entry.content + " " + str(namespace.arguments))
+                    else:
+                        os.system(entry.content)
                 else:
                     print("Cannot execute, entry not found")
 
