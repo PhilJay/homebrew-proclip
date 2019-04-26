@@ -25,11 +25,14 @@ class Interpreter(object):
             elif opt in ("e", "execute"):
                 entry = self.db.get(arg[0])
                 if entry is not None:
-                    self.print_if("Executing: " + str(entry.content))
-                    if namespace.arguments:
-                        os.system(entry.content + " " + str(namespace.arguments))
-                    else:
-                        os.system(entry.content)
+                    command = entry.content
+
+                    if self.namespace.arguments:  # check for additional arguments for execute
+                        for argument in self.namespace.arguments:
+                            command += " " + argument
+
+                    self.print_if("Executing: " + command)
+                    os.system(command)
                 else:
                     print("Cannot execute, entry not found")
 
