@@ -3,7 +3,7 @@ class Proclip < Formula
   homepage "https://github.com/PhilJay/homebrew-proclip"
 
 
-  url "https://github.com/PhilJay/homebrew-proclip.git", :using => :git, :tag => "0.1.3"
+  url "https://github.com/PhilJay/homebrew-proclip.git", :using => :git, :tag => "0.1.4"
 
   def install
     # the name of the executable in the git repo
