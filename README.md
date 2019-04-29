@@ -3,6 +3,8 @@ A lightweight terminal extension for **storing and executing frequently used com
 
 Requires Python 3+
 
+Local database is stored in `"userhome/Library/Application Support/ProClip"`
+
 # Installation
 ProClip can be installed using [Homebrew](https://brew.sh/), to do so, follow the steps below.
 
