@@ -1,5 +1,5 @@
 # ProClip
-A lightweight terminal extension for **storing and executing frequently used commands** conveniently instead of having to re-type them everytime.
+A lightweight terminal extension written in Python for **storing and executing frequently used commands** conveniently instead of having to re-type them everytime.
 
 Requires Python 3+
 
