@@ -3,7 +3,7 @@ A lightweight terminal extension written in Python for **storing and executing f
 
 Requires Python 3+
 
-Local database is stored in `"userhome/Library/Application Support/ProClip"`
+Local SQL database is stored in `"userhome/Library/Application Support/ProClip"`
 
 # Installation
 ProClip can be installed using [Homebrew](https://brew.sh/), to do so, follow the steps below.
