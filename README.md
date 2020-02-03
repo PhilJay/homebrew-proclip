@@ -6,7 +6,7 @@ Requires Python 3+
 Local SQL database is stored in `"userhome/Library/Application Support/ProClip"`
 
 # Installation
-ProClip can be installed using [Homebrew](https://brew.sh/), to do so, follow the steps below.
+ProClip can be installed and upgraded using [Homebrew](https://brew.sh/), to do so, follow the steps below.
 
 Clone the repository and add the brew formula to the brew search path using:
 ```python
