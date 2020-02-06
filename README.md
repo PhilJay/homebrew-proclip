@@ -1,7 +1,7 @@
 # ProClip
 A lightweight terminal extension written in Python for **storing and executing frequently used commands** conveniently instead of having to re-type them everytime.
 
-Requires Python 3+
+Requires Python 3+, created with [PyCharm Python IDE](https://www.jetbrains.com/pycharm/)
 
 Local SQL database is stored in `"userhome/Library/Application Support/ProClip"`
 
