@@ -3,6 +3,12 @@ A lightweight terminal extension written in Python for **storing and executing f
 
 Requires Python 3+, created with [PyCharm Python IDE](https://www.jetbrains.com/pycharm/)
 
+The executable for this tool (required for Homebrew) was created with `pyinstaller`:
+
+````
+pyinstaller ProClip.py --onefile
+````
+
 Local SQL database is stored in `"userhome/Library/Application Support/ProClip"`
 
 # Installation
